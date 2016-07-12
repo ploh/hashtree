@@ -301,23 +301,32 @@ if $PROGRAM_NAME == __FILE__
     tree3 = Tree.new((1..collection_size+2).collect {|i| (i+1).to_s})
     tree4 = Tree.new((collection_size..1).collect {|i| i.to_s})
 
-    puts "Finding a new blob in two very different collections..."
-    tree1.find_new_content(tree2, limit: 1, verbose: true)
-    puts
-    puts "Finding all new blobs in two very different collections..."
-    puts "Found #{tree1.find_new_content(tree2, verbose: true).size} new blobs"
-    puts
+    begin
+      puts "Finding a new blob in two very different collections..."
+      tree1.find_new_content(tree2, limit: 1, verbose: true)
+      puts
+      puts "Finding all new blobs in two very different collections..."
+      result = tree1.find_new_content(tree2, verbose: true)
+      puts "Found #{result.size} new blobs"
+      puts
+    end
 
-    puts "Finding a new blob in two almost identical collections..."
-    tree1.find_new_content(tree3, limit: 1, verbose: true)
-    puts
-    puts "Finding all new blobs in two almost identical collections..."
-    puts "Found #{tree1.find_new_content(tree3, verbose: true).size} new blobs"
-    puts
+    begin
+      puts "Finding a new blob in two almost identical collections..."
+      tree1.find_new_content(tree3, limit: 1, verbose: true)
+      puts
+      puts "Finding all new blobs in two almost identical collections..."
+      result = tree1.find_new_content(tree3, verbose: true)
+      puts "Found #{result.size} new blobs"
+      puts
+    end
 
-    puts "Finding all new blobs in two exactly identical collections..."
-    puts "Found #{tree1.find_new_content(tree4, verbose: true).size} new blobs"
-    puts
-    puts
+    begin
+      puts "Finding all new blobs in two exactly identical collections..."
+      result = tree1.find_new_content(tree4, verbose: true)
+      puts "Found #{result.size} new blobs"
+      puts
+      puts
+    end
   end
 end
