@@ -41,8 +41,6 @@ module HashTree
     # abstract base class for leaf and non-leaf nodes
     class Node
       attr_reader :shash, :parent
-
-      private :initialize
     end
 
 
