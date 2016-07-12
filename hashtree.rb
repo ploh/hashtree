@@ -34,11 +34,10 @@ module HashTree
 
 
   class Tree
-    # root is a pointer to the root node of the hashtree
     attr_reader :root
     private :root
 
-    # abstract base class for leaf and non-leaf nodes
+    # abstract base class
     class Node
       attr_reader :shash, :parent
     end
