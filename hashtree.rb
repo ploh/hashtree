@@ -291,6 +291,8 @@ end
 if $PROGRAM_NAME == __FILE__
   include HashTree
 
+  srand 1245131
+
   [250, 500, 1000, 2000].each do |collection_size|
     puts "Collection size: #{collection_size}"
     puts
